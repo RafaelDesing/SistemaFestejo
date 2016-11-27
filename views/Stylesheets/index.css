@@ -1,0 +1,161 @@
+@font-face {
+    font-family: 'Lobster';
+    src: url('Lobster-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+	padding: 0px;
+	margin: 0px;
+	background-image: url(../Imagen/fondo.png);
+	overflow-x: hidden;
+}
+
+body > header {
+	padding: 0px;
+}
+
+body > header > header {
+	padding: 0px;
+	height: 100px;
+	text-align: center;
+}
+
+body > header > header div.title {
+	margin-top: 8px;
+	line-height: 40px !important;
+	font-family: 'Lobster', arial, helvetica;
+	font-weight: normal;
+	color: #E7E7E7;
+	font-size: 2.5em !important;
+}
+
+body > header > header div.rif {
+	margin-top: 8px;
+	font-family: 'Lobster', arial, helvetica;
+	font-weight: normal;
+	color: #E7E7E7;
+	font-size: 1.5em !important;
+}
+
+body > header > nav {
+	padding: 0px;
+	height: 50px !important;
+	background-color: #E8E8E8;
+    margin: 0px 0px 0px 0px !important;
+}
+
+body > header > nav li.logo {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 15px !important;
+    color: #333333;
+}
+
+body > header > nav ul li {
+	margin-left: 10px !important;
+}
+
+body > header > nav > div > ul > li > a {
+	margin-top: 2px !important;
+	line-height: 25px !important;
+}
+
+.navbar-right {
+    float: right !important;
+}
+
+.navbar-right > li {
+	margin-top: 15px;
+}
+
+body > main {
+	height: 515px;
+	/*background-color: green;*/
+}
+
+.nav_none {
+	display: none !important;
+}
+
+body > main > div.ctotal {
+	color: #E7E7E7;
+	font-size: 20px;
+}
+
+body > main > form {
+	/*background-color: magenta;*/
+	/*height: 40%;*/
+	height: 206px !important;
+	min-height: 206px !important;
+	max-height: 206px !important;
+	margin-bottom: 0px;
+}
+
+body > main > form label {
+	color: #E7E7E7;
+	font-weight: bolder;
+}
+
+body > main > div.tabla {
+	/*background-color: red;*/
+	/*height: 350px;*/
+	height: 60%;
+	margin-top: 0px;
+	background-color: #FFFFFF;
+}
+
+body > main > div.tabla input.selector {
+	width: 50px;
+	font-size: 10px;
+	margin-top: 5px;
+}
+
+body > main > div.tabla input.btn.btn-info {
+	/* margin-left: 5px; */
+	margin-bottom: 5px;
+}
+
+body > article {
+	height: 250px;
+	margin-top: 40px;
+	border-radius: 10px;
+	background-color: #E8E8E8;
+	text-align: center;
+}
+
+body > article > div.one {
+	margin-top: 8px;
+	line-height: 40px !important;
+	font-family: 'Lobster', arial, helvetica;
+	font-weight: normal;
+	color: #333333;
+	font-size: 2.5em !important;
+}
+
+body > article em {
+	display: none;
+	color: red;
+}
+
+body > footer {
+	position: absolute;
+	left: 0px !important;
+	bottom: 0px !important;
+	height: 25px !important;
+	width: 100% !important;
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-family: monospace;
+}
+
+body > footer > a {
+	text-decoration: none;
+	color: inherit;
+}
+
+#myModal > div > div > div.modal-body > table:nth-child(1) > tbody tr th {
+	text-align: right;
+}

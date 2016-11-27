@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>La Piñata</title>
+		<link rel="icon" href="ico.jpg" type="image/x-icon" />
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="Style/tabla.css" rel="stylesheet" />
+		<link href="Style/main.css" rel="stylesheet" />
+		<link href="Style/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+
+		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript" src="JavaScript/jquery.min.js"></script>
+		<script type="text/javascript" src="JavaScript/main.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="JavaScript/bootstrap-datetimepicker.js"></script>
+	</head>
+	<body>
+		<header>
+			<div class="titulo">Frabrica y Festejos "La Piñata"</div>
+			<div class="rif">Rif V18156016-5</div>
+			<div class="paleft">
+				<span id="sysfecha"><strong>Fecha:&nbsp;</strong><span>30/09/2016</span></span>
+				<br>
+				<span id="name"><strong><em>Sr(a).&nbsp;</strong><spam></span></em></span>
+			</div>
+		</header>
+		<main>
+			<div class="zona_alert_may">
+				<div class="alert alert-error">
+					<!--<button type="button" class="close" data-dismiss="alert">×</button>-->
+					<strong>Ocurrio un Error!</strong> Porfavor verifique el usuario (cedula) o la Contraseña.
+				</div>
+			</div>
+			<div id="entrada" class="well span4">
+				<h1>Bienvenidos</h1>
+				<form id="fentrada" role="form" class="form-horizontal" action="" method="post">
+					<div class="form-group">
+		    			<div class="">
+							<input value="19529584" id="Ucedula" class="form-control span4" type="number" placeholder="Cedula Operador" autocomplete="off" autofocus="autofocus">
+						</div>
+						<div class="">
+							<br>
+							<input value='19529584' id="Uclave" class="form-control span4" type="password" placeholder="Contraseña de Entrada" autocomplete="off" autofocus="autofocus">
+						</div>
+						<div class="form-group">
+							<div class="" style="margin:20px 40%;">
+								<input id="sing" type="button" value="Entrar">
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<ul class="tab" style="display:none;">
+				<li><a subid="uno" href="#" class="tablinks active">Venta y Pedidos</a></li>
+				<li><a subid="dos" href="#" class="tablinks">Almacen</a></li>
+				<li><a subid="tres" href="#" class="tablinks">Usuario</a></li>
+				<!-- <li><a subid="cuatro" href="#" class="tablinks">Ayuda</a></li> -->
+			</ul>
+			<div id="uno" class="tabcontent well">
+				<div class="zona_alert">
+					<div id="falert" class="alert"><!--alert-error || alert-success-->
+						<!--<button type="button" class="close" data-dismiss="alert">×</button>-->
+					</div>
+				</div>
+				<form role="form" class="form-horizontal" action="" onsubmit="return registro( $(this) );" method="post">
+					<div class="form-group">
+						<label for="cedula" class="span1 control-label">Cedula:</label>
+		    			<div class="span2">
+							<!-- float type="number" step="any" -->
+							<input id="cedula" class="form-control" type="number" autocomplete="off" autofocus="autofocus">
+						</div>
+						<label for="nombre" class="span1 control-label">Nombre:</label>
+		    			<div class="span2">
+							<input id="nombre" class="form-control" type="text" autocomplete="off">
+						</div>
+						<label for="telefono" class="span1 control-label">Telefono:</label>
+		    			<div class="span2">
+							<input id="telefono" class="form-control" type="tel" autocomplete="off">
+						</div>
+					</div>
+					<div class="form-group">
+						<br><br>
+						<div id="fecha_pedido" style="display:none;">
+							<label for="fechae" class="span1 control-label">Fecha Entrega:</label>
+			    			<div class="span3">
+								<div class="input-append datetimepicker">
+									<input id="fechae" data-format="dd-MM-yyyy" type="text" autocomplete="off">
+									<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+								</div>
+								<script type="text/javascript">
+									$(function() {$('.datetimepicker').datetimepicker({pickTime: false});});
+								</script>
+							</div>
+						</div>
+						<div id="zona_busq_art" style="display:none;">
+							<label for="busca_art" class="span1 control-label">Artiulo:</label>
+			    			<div class="span4">
+								<input id="busca_art" class="form-control" type="text" style="width:300px;" autocomplete="off">
+							</div>
+						</div>
+						<div id="fecha_busca" style="display:none;">
+							<label for="fechab" class="span1 control-label">Fecha Buscar:</label>
+			    			<div class="span3">
+								<div class="input-append datetimepicker">
+									<input id="fechab" data-format="dd-MM-yyyy" type="text" autocomplete="off">
+									<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+								</div>
+								<input id="busca" type="button" style="margin-top:3px;" value="Buscar">
+								<script type="text/javascript">
+									$(function() {$('.datetimepicker').datetimepicker({pickTime: false});});
+								</script>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div class="form-group">
+						<div class="span12" style="margin:20px 0px;">
+							<!--<input id="save1" type="button" value="Guardar" disabled>-->
+							<button id="save1" type="button" class="btn btn-primary btn-xs" disabled="disabled">Guardar</button>
+							<input id="facturar" type="button" value="Facturar">
+							<input id="lvd" type="button" value="Listar Venta del Dia">
+							<input id="pedido" type="button" value="Pedidos">
+							<input id="lpp" type="button" value="Listar Pedidos Pendientes">
+							<input id="lpm" type="button" value="Lista de Pedidos del Mes">
+							<input id="cancel1" class="btn-warning" type="button" value="Cancelar">
+							<input id="canselec1" class="btn-warning" type="button" value="Cancelar Seleccion" disabled>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-lg-12">
+							<div id="tableContainer" class="tableContainer">
+								<table border="0" cellpadding="0" cellspacing="0" width="100%" class="scrollTable">
+									<thead class="fixedHeader" id="fixedHeader">
+										<tr class="alternateRow"></tr>
+									</thead>
+									<tbody class="scrollContent"></tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="form-group" style="text-align:right;font-size:20px;margin-top:5px;">
+						<strong>TOTAL:&nbsp;<em><span style="color:red;">0.00</span></em>&nbsp;Bs</strong>
+					</div>
+				</form>
+			</div>
+			<div id="dos" class="tabcontent well" style="display:none;">
+				<div class="zona_alert2">
+					<div id="falert2" class="alert"><!--alert-error || alert-success-->
+						<!--<button type="button" class="close" data-dismiss="alert">×</button>-->
+					</div>
+				</div>
+				<form role="form" id="form2" class="form-horizontal" action="" onsubmit="return registro( $(this) );" method="post">
+					<div class="form-group">
+						<label for="codigo" class="span1 control-label">Codigo:</label>
+		    			<div class="span2">
+							<!-- float type="number" step="any" -->
+							<input id="codigo" class="form-control" type="text" autocomplete="off" autofocus="autofocus">
+						</div>
+						<label for="descripcion" class="span1 control-label">Descripcion:</label>
+		    			<div class="span2">
+							<input id="descripcion" class="form-control" type="text" autocomplete="off">
+						</div>
+						<label for="cantidad" class="span1 control-label">Cantidad:</label>
+		    			<div class="span2">
+							<input id="cantidad" class="form-control" type="number" autocomplete="off">
+						</div>
+					</div>
+					<div class="form-group">
+						<br><br>
+						<label for="precio" class="span1 control-label">Precio:</label>
+		    			<div class="span3">
+							<input id="precio" type="number" step="any" autocomplete="off">
+						</div>
+					</div>
+					<br>
+					<div class="form-group">
+						<div class="span12" style="margin:20px 0px;">
+							<input id="save2" type="button" value="Guardar" disabled>
+							<input id="lista" type="button" value="Actualizar Lista">
+							<input id="cancel2" class="btn-warning" type="button" value="Cancelar">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-lg-12">
+							<div id="tableContainer2" class="tableContainer">
+								<table border="0" cellpadding="0" cellspacing="0" width="100%" class="scrollTable">
+									<thead class="fixedHeader" id="fixedHeader">
+										<tr class="alternateRow">
+											<th>CODIGO</th><th>DESCRIPCION</th><th>CANTIDAD</th><th>PRECIO</th><th>OPERACION</th>
+										</tr>
+									</thead>
+									<tbody class="scrollContent"></tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div id="tres" class="tabcontent well">
+				<form role="form" id="form3" class="form-horizontal" action="" onsubmit="return registro( $(this) );" method="post">
+					<div class="form-group">
+						<label for="ucedula" class="span1 control-label">Cedula:</label>
+		    			<div class="span2">
+							<!-- float type="number" step="any" -->
+							<input id="ucedula" class="form-control" type="number" autocomplete="off" autofocus="autofocus">
+						</div>
+						<label for="unombre" class="span1 control-label">Nombre:</label>
+		    			<div class="span2">
+							<input id="unombre" class="form-control" type="text" autocomplete="off">
+						</div>
+						<label for="uclave" class="span1 control-label">Clave:</label>
+		    			<div class="span2">
+							<input id="uclave" class="form-control" type="password" autocomplete="off">
+						</div>
+					</div>
+					<div class="form-group">
+						<br><br>
+						<label for="urango" class="span1 control-label">Rango:</label>
+		    			<div class="span3">
+							<select id="urango" class="form-control">
+								<option value="1">Administrador</option>
+								<option value="2">Operador</option>
+							</select>
+						</div>
+					</div>
+					<br>
+					<div class="form-group">
+						<div class="span12" style="margin:20px 0px;">
+							<input id="save3" type="button" value="Guardar" disabled>
+							<input id="cancel3" class="btn-warning" type="button" value="Cancelar">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-lg-12">
+							 <div id="tableContainer3" class="tableContainer">
+								<!-- <table border="0" cellpadding="0" cellspacing="0" width="100%" class="scrollTable">
+									<thead class="fixedHeader" id="fixedHeader">
+										<tr class="alternateRow">
+											<th>FECHA - HORA</th>
+											<th>AREA</th>
+											<th>MOVIMIENTO</th>
+										</tr>
+									</thead>
+									<tbody class="scrollContent"></tbody>
+								</table> -->
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</main>
+		<footer></footer>
+	</body>
+</html>

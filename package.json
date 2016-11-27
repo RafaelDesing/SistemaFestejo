@@ -1,0 +1,21 @@
+{
+  "name": "SistemaFestejo",
+  "version": "1.0.0",
+  "description": "Sistema de Ventas y Deposito (estable)",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Ing. Rafael Briceño TW @root_tfc",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "body-parser": "~1.15.2",
+    "express": "~4.14.0",
+    "moment": "~2.15.2",
+    "pg": "^6.1.0",
+    "es6-promise": "~4.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "~1.11.0"
+  }
+}

@@ -1,0 +1,18 @@
+<div class="row">
+	<div class="input-append datetimepicker field col-xs-4">
+		<label for="bfecha">Buscar Mes:</label>
+		<input id="bfecha" data-format="dd-MM-yyyy" type="text" autocomplete="off">
+		<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+	</div>
+</div>
+<br>
+<div class="actions">
+	<input type="button" id="busc" value="Buscar" class="btn btn-info" onclick="pedido_mes();">
+	<input type="button" id="canc" value="Cancelar" class="btn btn-warning" onclick="click_canc();">
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.datetimepicker').datetimepicker({ pickTime: false, viewMode: 'months' });
+		$('input').attr('autocomplete','off');
+	});
+</script>

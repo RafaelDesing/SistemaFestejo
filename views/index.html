@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Sistema Festejo</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="Stylesheets/icons.css">
+	<link rel="stylesheet" type="text/css" href="Stylesheets/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="Stylesheets/bootstrap-datetimepicker.min.css">
+	<link rel="stylesheet" type="text/css" href="Stylesheets/flexboxgrid.css">
+	<link rel="stylesheet" type="text/css" href="Stylesheets/tabla.css">
+	<link rel="stylesheet" type="text/css" href="Stylesheets/index.css">
+</head>
+<body>
+	<header class="row">
+		<header class="col-xs-12">
+			<div class="title">Fabrica y Festejos "La Piñata"</div>
+			<div class="rif">RIF V18156016-5</div>
+		</header>
+		<nav class="nav navbar navbar-default col-xs-12">
+			<div class="container-fluid">
+				<ul class="nav navbar-nav">
+					<li class="logo">Sistema Festejo</li>
+					<!-- <li class="active"><a href="#">Venta</a></li> -->
+					<li><a href="#">Venta</a></li>
+        			<li><a href="#">Ventas del Dia</a></li>
+        			<li><a href="#">Pedido</a></li>
+        			<li><a href="#">Pedidos Pendientes</a></li>
+        			<li><a href="#">Pedidos del Mes</a></li>
+        			<li><a href="#">Almacen</a></li>
+        			<li><a href="#">Usuario</a></li>
+				</ul>
+				<ul class="nav navbar-right">
+					<li id="user_name"></li>
+					<input type="hidden" id="grado">
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<main class="row nav_none">
+		<input type="hidden" id="form-data" value="0">
+		<form action="#" method="post" class="col-xs-10 col-sm-offset-1"></form>
+		<div class="col-xs-3 col-sm-offset-9 ctotal">Total: 0 Bs</div>
+		<div class="tabla tableContainer3 col-xs-10 col-sm-offset-1 tableContainer">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%" class="scrollTable">
+				<thead class="fixedHeader" id="fixedHeader">
+					<tr class="alternateRow"></tr>
+				</thead>
+				<tbody class="scrollContent"></tbody>
+			</table>
+		</div>
+	</main>
+	<article class="col-xs-4 col-sm-offset-4">
+		<div class="col-xs-12 one">Bienvenidos</div>
+		<em>Verifique Cedula o Clave, entrada Fallida.</em>
+		<br>
+		<div class="row">
+			<div class="col-xs-12">
+				<label for="icedula"><strong>CEDULA</strong></label>
+				<input id="icedula" type="number" name="icedula" autofocus="true" value="19529584">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<label for="iclave"><strong>CLAVE</strong></label>
+				<input id="iclave" type="password" name="iclave" value="123">
+			</div>
+		</div>
+		<div class="actions">
+			<input type="button" id="sing" value="Ingresar" class="btn btn-info" onclick="session_open($('input#icedula').val(), $('input#iclave').val());">
+		</div>
+	</article>
+	<footer>
+		Realizado Por: Ing. Rafael Briceño TW <a href="https://www.twitter.com/root_tfc">@root_tfc</a> <span style="font-family:arial;font-size:15px;">&copy;</span> 2016 Todos Los Derechos Reservados.
+	</footer>
+
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Factura <strong></strong></h4>
+				</div>
+				<div class="modal-body">
+					<table cellspacing="5">
+						<tbody>
+							<tr><th>Cedula:&nbsp;&nbsp;&nbsp;</th><td></td></tr>
+							<tr><th>Nombre:&nbsp;&nbsp;&nbsp;</th><td></td></tr>
+							<tr><th>Telefono:&nbsp;&nbsp;&nbsp;</th><td></td></tr>
+							<tr><th>Fecha Venta:&nbsp;&nbsp;&nbsp;</th><td></td></tr>
+							<tr><th>Fecha Pedido:&nbsp;&nbsp;&nbsp;</th><td></td></tr>
+							<tr><th>Fecha Entrega:&nbsp;&nbsp;&nbsp;</th><td></td></tr>
+						</tbody>
+					</table>
+					<br>
+					<table border="1" class="col-xs-12">
+						<thead>
+							<tr><th>Cantidad</th><th width="400">Descripcion</th><th width="100">Precio</th></tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="JavaScript/jquery.min.js"></script>
+	<script src="JavaScript/bootstrap-datetimepicker.js"></script>
+	<script src="JavaScript/bootstrap.js"></script>
+	<script src="JavaScript/tabla.js"></script>
+	<script src="JavaScript/index.js"></script>
+</body>
+</html>

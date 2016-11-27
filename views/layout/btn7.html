@@ -1,0 +1,41 @@
+<div class="row">
+	<div class="field col-xs-4">
+		<label for="cedula">Cedula:</label>
+		<input id="cedula" type="number" name="cedula" autofocus="true">
+	</div>
+	<div class="field col-xs-4">
+		<label for="nombre">Nombre:</label>
+		<input id="nombre" type="text" name="nombre">
+	</div>
+	<div class="field col-xs-4">
+		<label for="grado">Grado:</label>
+		<select id="grado" name="grado">
+			<option id="o2" value="2">Operador</option>
+			<option id="o1" value="1">Administrador</option>
+		</select>
+	</div>
+</div>
+<div class="row">
+	<div class="field col-xs-4">
+		<label for="clave">Clave:</label>
+		<input id="clave" type="password" name="clave">
+	</div>
+	<div class="field col-xs-4">
+		<label for="reclave">Confirmar Clave:</label>
+		<input id="reclave" type="password" name="reclave">
+	</div>
+</div>
+<br>
+<div class="actions">
+	<input type="button" id="save" value="Guardar" class="btn btn-success" onclick="save_user();">
+	<input type="button" id="dele" value="Eliminar" class="btn btn-danger">
+	<input type="button" id="canc" value="Cancelar" class="btn btn-warning" onclick="click_canc();">
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('input').attr('autocomplete','off');
+		$('input#cedula').keyup(function(){
+			user_find($(this).val());
+		});
+	});
+</script>

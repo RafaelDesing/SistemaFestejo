@@ -1,0 +1,42 @@
+<div class="row">
+	<div class="field col-xs-4">
+		<label for="cedula">Cedula:</label>
+		<input id="cedula" type="number" name="cedula" autofocus="true">
+	</div>
+	<div class="field col-xs-4">
+		<label for="nombre">Nombre:</label>
+		<input id="nombre" type="text" name="nombre">
+	</div>
+	<div class="field col-xs-4">
+		<label for="telefono">Telefono:</label>
+		<input id="telefono" type="tel" name="telefono">
+	</div>
+</div>
+<div class="row">
+	<div class="input-append datetimepicker field col-xs-4">
+		<label for="pfecha">Fecha de Entrega:</label>
+		<input id="pfecha" data-format="dd-MM-yyyy" type="text" autocomplete="off">
+		<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+	</div>
+	<div class="field col-xs-4">
+		<label for="bus_art">Busca Articulo:</label>
+		<input id="bus_art" type="text" name="bus_art">
+	</div>
+</div>
+<br>
+<div class="actions">
+	<input type="button" id="save" value="Guardar" class="btn btn-success" onclick="save_pedido();">
+	<input type="button" id="canc" value="Cancelar" class="btn btn-warning" onclick="click_canc();">
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.datetimepicker').datetimepicker({ pickTime: false, viewMode: 'months' });
+		$('input').attr('autocomplete','off');
+		$('input#cedula').keyup(function(){
+			bus_cliente($(this).val());
+		});
+		$('input#bus_art').keyup(function(){
+			bus_articulo_name($(this).val());
+		});
+	});
+</script>
